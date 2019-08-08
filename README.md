@@ -15,27 +15,27 @@ After having a quick look at the specification, I have determined that we will b
 
 #Requirements
 
-you can use whatever programming language you like for this exercise
+you can use whatever programming language you like for this exercise :white_check_mark:
 
-Do not use a brute force / trial division algorithm
+Do not use a brute force / trial division algorithm :white_check_mark:
 
-Should have a test for a performant prime algorithm that can generate a list of 20,000+
+Should have a test for a performant prime algorithm that can generate a list of 20,000+ :white_check_mark:
 primes
 
-small commits to git so that we can see how you’ve developed your
+small commits to git so that we can see how you’ve developed your :white_check_mark:
 solution
 
-write your application with high unit test coverage
+write your application with high unit test coverage :white_check_mark:
 
-for the input and output you can use the console, a web page, or something
-else
+for the input and output you can use the console, a web page, or something 
+else :white_check_mark:
  
 please write an algorithm to solve the prime number generation - do not use a library method
-to generate your primes
+to generate your primes :white_check_mark:
 
-the user should input a whole number N, where is N is at least 1
+the user should input a whole number N, where is N is at least 1 :white_check_mark:
 
-the application should output an N+1 x N+1 grid of numbers
+the application should output an N+1 x N+1 grid of numbers :white_check_mark:
 
 
 
