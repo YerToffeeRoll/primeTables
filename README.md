@@ -2,16 +2,14 @@
 A small tech test set out by the lovely people of FindMyPast.co.uk
 
 #Introduction 
+
 Write an application that takes numeric input (N) from a user and outputs a
 multiplication table of (N) prime numbers. Our hope is that it should only take a couple of hours to
 build a simple solution.
 
-
-
 #Research
 
 After having a quick look at the specification, I have determined that we will be using prime sieves for generating our prime number tables. 
-
 
 #Requirements
 
@@ -42,6 +40,15 @@ the application should output an N+1 x N+1 grid of numbers :white_check_mark:
 
 #how to run it
 
+-You can run the initial program by running the index.html page either locally or on a server.
+-You can run the jamsine tests by opening the primeTables/jasmine/specrunner.js file.
+
 #what you’re pleased with
 
+- I'm pleased with the initial runtime that i got the prime table to compute in. Even low end spec computers will be able to process a prime table quickly. 
+
 #what you would do with it if you had more time
+
+ I would perhaps add some css to make the page more usable and readable.
+ I would like to add some front end validation on the index page. 
+ I would like to pursue generating the prime table even quicker with another algorithm such as the Sieve of Sundaram. 
