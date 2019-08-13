@@ -1,4 +1,3 @@
-//Utilizes the sieve of Eratosthene to determine primality
 function isPrime(n) {
     if (n <= 1) {
         return false;
@@ -31,34 +30,58 @@ function getPrimes(max) {
     return primes;
 }
 
-function getStarted() {
+// Complete multiplication of primes to fill table
+function multiplyPrimes(primesArray) {
+    if (primesArray.length === 0) {
+        return null;
+    }
 
-    //basic initialising and  interfacing of variables
-    let text = document.getElementById('input1').value;
+    let firstArray = [null].concat(primesArray);
+    let multipliedPrimes = [firstArray];
+
+    primesArray.forEach(function (prime) {
+        let newRow = [prime];
+        primesArray.forEach(function (primeToMultiplyBy) {
+            newRow.push(prime * primeToMultiplyBy);
+        });
+
+        multipliedPrimes.push(newRow);
+    });
+
+    return multipliedPrimes;
+}
+
+// Display table with the values from multiplyPrimes()
+function displayTable(multipliedPrimes) {
+
+
     let tbl = document.createElement('table'),
         tbd = tbl.appendChild(document.createElement('tbody')),
         tr, td, i, found = 0;
+    //run through the arrays and print out a nice wee table
+    multipliedPrimes.forEach(function (array) {
+        tr = tbd.appendChild(document.createElement('tr'));
+        array.forEach(function (primepro) {
+            td = tr.appendChild(document.createElement('td'));
+            td.appendChild(document.createTextNode(primepro))
+        });
+    });
 
+    document.body.appendChild(tbl);
+    tbl.setAttribute("border", 1);
+
+
+}
+
+function getStarted() {
+
+    //if input is a prime, then we can get the table
+    //basic initialising and  interfacing of variables
+    let text = document.getElementById('input1').value;
     if (isPrime(text)) {
-        //if input is a prime, then we can get the table
         let primedata = getPrimes(text);
-
-        if (primedata) {
-            for (i in primedata) {
-                // if the number of found numbers is a multiple of 10, start a new row
-                // the first prime we find will be "number 0", which is divisible by 10.
-                if (found % 10 == 0) tr = tbd.appendChild(document.createElement('tr'));
-                td = tr.appendChild(document.createElement('td'));
-                td.appendChild(document.createTextNode(primedata[i]));
-                found++
-            }
-            if (found % 10 != 0) {
-                td = tr.appendChild(document.createElement('td'));
-                td.colSpan = 10 - found % 10;
-            }
-            document.body.appendChild(tbl);
-            tbl.setAttribute("border", 1);
-        }
+        let multipliedPrimes = this.multiplyPrimes(primedata);
+        this.displayTable(multipliedPrimes);
     } else {
         document.getElementById('output').append('Not a prime number');
     }
