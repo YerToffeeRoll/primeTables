@@ -14,14 +14,13 @@ function isPrime(n) {
     return true;
 }
 
-//Utilizes the sieve of Eratosthene to create table
+//Utilizes the sieve of Eratosthene to create primes array
 function getPrimes(max) {
     let sieve = [], i, j, primes = [];
     for (i = 2; i <= max; ++i) {
         if (!sieve[i]) {
             // i has not been marked -- it is prime
             primes.push(i);
-
             for (j = i << 1; j <= max; j += i) {
                 sieve[j] = true;
             }
@@ -29,6 +28,24 @@ function getPrimes(max) {
     }
     return primes;
 }
+
+// Store first n primes, use isPrime to determine if a given number is prime
+function generatePrimesArray(max) {
+    let primes = [];
+    let i = 0;
+
+    while (primes.length < max) {
+        if (this.isPrime(i)) {
+            primes.push(i);
+        }
+
+        i += 1;
+    }
+
+    return primes;
+}
+
+
 
 // Complete multiplication of primes to fill table
 function multiplyPrimes(primesArray) {
@@ -78,13 +95,11 @@ function getStarted() {
     //if input is a prime, then we can get the table
     //basic initialising and  interfacing of variables
     let text = document.getElementById('input1').value;
-    if (isPrime(text)) {
-        let primedata = getPrimes(text);
+
+        let primedata = generatePrimesArray(text);
         let multipliedPrimes = this.multiplyPrimes(primedata);
         this.displayTable(multipliedPrimes);
-    } else {
-        document.getElementById('output').append('Not a prime number');
-    }
+
 }
 
 
